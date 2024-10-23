@@ -12,7 +12,10 @@ app.listen(PORT, () => {
   console.log(`Server is Fire at http://localhost:${PORT}`);
 });
 bot.command("start", (ctx) => {
-  return ctx.reply(`Play Cool TARZIUS GAME!`, {
+  return ctx.reply(```
+  <img src="https://api.guruasn.my.id/storage/images/tarziuslanscape.webp" alt="TarziGame" width="640" height="360">
+  Play Cool TARZIUS GAME!
+  ```, {
     reply_markup: {
       inline_keyboard: [
         [
