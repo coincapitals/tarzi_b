@@ -11,11 +11,12 @@ app.get("/", (_, res) => {
 app.listen(PORT, () => {
   console.log(`Server is Fire at http://localhost:${PORT}`);
 });
-bot.command("start", (ctx) => {
-  return ctx.reply(```
-  <img src="https://api.guruasn.my.id/storage/images/tarziuslanscape.webp" alt="TarziGame" width="640" height="360">
-  Play Cool TARZIUS GAME!
-  ```, {
+bot.command("start", async (ctx) => {
+  // First, send the image
+  await ctx.replyWithPhoto('https://api.guruasn.my.id/storage/images/tarziuslanscape.webp');
+
+  // Then, send the text with the keyboard
+  return ctx.reply(`Ready to Rule the Jungle?\n👉 Press "Start Game" to kick off your tapping spree!\n👉 Engage in missions, employ tactical boosts, and compete for the highest scores.\n👉 Earn $TARZI tokens as you play, and use them to gain a competitive edge.`, {
     reply_markup: {
       inline_keyboard: [
         [
@@ -28,5 +29,6 @@ bot.command("start", (ctx) => {
     },
   });
 });
+
 bot.launch();
 export default app;
